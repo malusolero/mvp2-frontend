@@ -84,6 +84,26 @@ const HomePage = () => {
                       component="div"
                       color="secondary"
                     >
+                      Home
+                    </Typography>
+                    <Typography variant="body2" color="secondary">
+                      Página inicial da aplicação FinPlan. Veja todas as
+                      funcionalidades, conheça a aplicação, entenda sobre cada
+                      página e o que pode ser feito nas páginas. Cada nova
+                      funcionalidade do FinPlan aparecerá aqui.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} lg={4}>
+                <Card sx={{ backgroundColor: "#474A2C" }}>
+                  <CardContent>
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="div"
+                      color="secondary"
+                    >
                       Gestão
                     </Typography>
                     <Typography variant="body2" color="secondary">
@@ -104,6 +124,7 @@ const HomePage = () => {
                   </CardActions>
                 </Card>
               </Grid>
+
               <Grid item xs={12} lg={4}>
                 <Card sx={{ backgroundColor: "#474A2C" }}>
                   <CardContent>
@@ -127,35 +148,6 @@ const HomePage = () => {
                       size="small"
                       color="secondary"
                       onClick={() => navigateToLink("/configuracoes")}
-                    >
-                      Visitar
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-              <Grid item xs={12} lg={4}>
-                <Card sx={{ backgroundColor: "#474A2C" }}>
-                  <CardContent>
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="div"
-                      color="secondary"
-                    >
-                      Gráficos
-                    </Typography>
-                    <Typography variant="body2" color="secondary">
-                      Aqui você poderá criar gráficos baseados nos parâmetros
-                      que você desejar. Você poderá observar de uma maneira
-                      interativa qual a relação entre custos variáveis e
-                      diferentes categorias de uma forma visual.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button
-                      size="small"
-                      color="secondary"
-                      onClick={() => navigateToLink("/graficos")}
                     >
                       Visitar
                     </Button>

@@ -1,0 +1,61 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "amount": -100,
+      "name": "Conta",
+      "category": "Lazer",
+      "periodicity": "Mensal",
+      "currency": "€",
+      "date": "14/07/2023"
+    },
+    {
+      "id": 2,
+      "amount": -300,
+      "name": "Viagem",
+      "category": "Viagens",
+      "periodicity": "Uma vez",
+      "currency": "€",
+      "date": "12/07/2023"
+    },
+    {
+      "id": 3,
+      "amount": 1000,
+      "name": "Teste",
+      "category": "Pensao",
+      "periodicity": "Mensal",
+      "currency": "R$",
+      "date": "05/07/2023"
+    },
+    {
+      "id": 4,
+      "amount": 1300,
+      "name": "Emprego",
+      "category": "Salário",
+      "periodicity": "Mensal",
+      "currency": "€",
+      "date": "05/07/2023"
+    },
+    {
+      "id": 5,
+      "amount": 1500,
+      "name": "Temp",
+      "category": "Salário",
+      "periodicity": "Trimestral",
+      "currency": "$",
+      "date": "10/07/2023"
+    },
+    {
+      "id": 6,
+      "amount": -80,
+      "name": "Medico",
+      "category": "Saude",
+      "periodicity": "Uma vez",
+      "currency": "€",
+      "date": "04/07/2023"
+    }
+  ],
+  "categories": ["Salário", "Lazer", "Saúde", "Mercado", "Pensão", "Viagens"],
+  "periodicities": ["Uma vez", "Mensal", "Trimestral", "Semestral", "Anual"],
+  "currencies": ["€", "$", "R$"]
+}

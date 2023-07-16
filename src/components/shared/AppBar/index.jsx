@@ -30,9 +30,6 @@ const SharedAppBar = () => (
           <StyledNavLink to="/configuracoes">
             <NavLinkTypography>Configurações</NavLinkTypography>
           </StyledNavLink>
-          <StyledNavLink to="/graficos">
-            <NavLinkTypography>Gráficos</NavLinkTypography>
-          </StyledNavLink>
         </Box>
       </Toolbar>
     </AppBar>

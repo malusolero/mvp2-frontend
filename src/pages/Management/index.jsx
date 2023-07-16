@@ -19,82 +19,42 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import axios from "axios";
 import Layout from "../../components/shared/Layout";
 import { StyledInputLabel } from "./index.styled";
 import { AppSelect } from "../../components/shared/AppSelect/index.styled";
 import GenericFilter from "./components/GenericFilter";
 import TransactionDialog from "./components/TransactionDialog";
+import { API_URL } from "../../utils/constants";
 
 const ManagementPage = () => {
-  const initial_transactions = [
-    {
-      id: 1,
-      amount: -200,
-      name: "Passeio final de semana",
-      category: "Lazer",
-      periodicity: "Mensal",
-      currency: "€",
-      date: new Date().toLocaleDateString(),
-    },
-    {
-      id: 2,
-      amount: -500,
-      name: "Viagem Lisboa",
-      category: "Viagens",
-      periodicity: "Uma vez",
-      currency: "€",
-      date: new Date().toLocaleDateString(),
-    },
-    {
-      id: 3,
-      amount: 400,
-      name: "Pagamento Edu",
-      category: "Pensão",
-      periodicity: "Mensal",
-      currency: "R$",
-      date: new Date().toLocaleDateString(),
-    },
-    {
-      id: 4,
-      amount: 2460,
-      name: "Emprego Manta",
-      category: "Salário",
-      periodicity: "Mensal",
-      currency: "€",
-      date: new Date().toLocaleDateString(),
-    },
-    {
-      id: 5,
-      amount: 5300,
-      name: "Alight USA",
-      category: "Salário",
-      periodicity: "Mensal",
-      currency: "$",
-      date: new Date().toLocaleDateString(),
-    },
-    {
-      id: 6,
-      amount: 2000,
-      name: "Freela Workana",
-      category: "Salário",
-      periodicity: "Uma vez",
-      currency: "R$",
-      date: new Date().toLocaleDateString(),
-    },
-  ];
-
   const theme = useTheme();
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [income, setIncome] = useState("");
   const [categories, setCategories] = useState("");
   const [periodicity, setPeriodicity] = useState("");
-  const [transactions, setTransactions] = useState(initial_transactions);
+  const [transactions, setTransactions] = useState([]);
+  const [initialTransactions, setInitialTransactions] = useState([]);
   const [openDialog, setOpenDialog] = useState({
     open: false,
     mode: "",
     currentTransaction: null,
   });
+  let initial_transactions = [];
+
+  const getTransactions = async () => {
+    const transactions = await axios.get(`${API_URL}/transactions`);
+    const { data } = transactions;
+    if (transactions) {
+      setTransactions(data);
+      setInitialTransactions(data);
+    }
+  };
+
+  useEffect(() => {
+    getTransactions();
+  }, []);
 
   useEffect(() => {
     handleFilter();
@@ -113,8 +73,8 @@ const ManagementPage = () => {
   };
 
   const handleFilter = () => {
-    console.log(income, categories, periodicity);
-    const filteredResults = initial_transactions.filter((transaction) => {
+    console.log(initialTransactions);
+    const filteredResults = initialTransactions.filter((transaction) => {
       let included = true;
       if (income) {
         if (income === "Entradas") {
@@ -164,7 +124,6 @@ const ManagementPage = () => {
     );
     const newTransactions = Array.from(transactions);
     newTransactions[transactionIndex] = form;
-    console.log(newTransactions);
     setTransactions(newTransactions);
     setOpenDialog({ open: false, mode: "" });
   };

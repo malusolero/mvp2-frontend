@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "../pages/Home";
 import ManagementPage from "../pages/Management";
 import SettingsPage from "../pages/Settings";
-import GraphsPage from "../pages/Graphs";
 
 const router = createBrowserRouter([
   {
@@ -16,10 +15,6 @@ const router = createBrowserRouter([
   {
     path: "/configuracoes",
     element: <SettingsPage />,
-  },
-  {
-    path: "/graficos",
-    element: <GraphsPage />,
   },
 ]);
 
